@@ -4,7 +4,11 @@
  
 ## Indroduction
 
-FINISH
+I approached this problem by breaking it down into 3 main features which were:
+- A constructor – for the patient’s variables and vitals which can be easily adapted to new features.
+- The medical score calculator – this would be where all the parameters are set, and the patients vitals are ran through this for the Medi Score result.
+- The Main / GUI – this is where you would create the patients constructor and set the values for the calculator to receive the Medi Score result which will then be displayed from The Main.
+Once I broke this problem down I started to pseudocode the solution as I didn’t know which language to choose at the start. This helped a lot when in development as reference to look back upon.
 
 ## Patient Class
 
