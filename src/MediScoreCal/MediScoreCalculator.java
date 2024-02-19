@@ -16,7 +16,7 @@ public class MediScoreCalculator {
         if (patient.getConsciousness() < 0 || patient.getConsciousness() > 1) {
             throw new Exception("Invalid value for consciousness");
         } else if (patient.getConsciousness() != 0) {
-            score += 1;
+            score += 3;
         }
 
         // Respiration rate
@@ -56,6 +56,34 @@ public class MediScoreCalculator {
             score += 1;
         } else if (patient.getTemperature() >= 36.1 && patient.getTemperature() <= 38.0) {
             score += 0;
+        }
+
+        // CBG
+        if (patient.getLastMeal() >= 2 && !patient.getIsFasting()) {
+            if (patient.getCBG() < 0 || patient.getCBG() > 100) {
+                throw new Exception("Invalid value for Capillary Blood Glucose");
+            } else if (patient.getCBG() <= 4.4 || patient.getCBG() >= 9.0) {
+                score += 3;
+            } else if (patient.getCBG() >= 4.5 && patient.getCBG() <= 5.8 || patient.getCBG() >= 7.9 && patient.getCBG() <= 8.9) {
+                score += 2;
+            } else if (patient.getCBG() >= 5.9 && patient.getCBG() <= 7.8) {
+                score += 0;
+            }
+        } else if (patient.getIsFasting()) {
+            if (patient.getCBG() < 0 || patient.getCBG() > 100) {
+                throw new Exception("Invalid value for Capillary Blood Glucose");
+            } else if (patient.getCBG() <= 3.4 || patient.getCBG() >= 6.0) {
+                score += 3;
+            } else if (patient.getCBG() >= 3.5 && patient.getCBG() <= 3.9 || patient.getCBG() >= 5.5 && patient.getCBG() <= 5.9) {
+                score += 2;
+            } else if (patient.getCBG() >= 4.0 && patient.getCBG() <= 5.4) {
+                score += 0;
+            }
+        }
+
+        // Previous Score
+        if (patient.getPreviousScore() != 0 && score - patient.getPreviousScore() > 2) {
+            System.out.println("\nAlert: Medi score has increased by more than 2 points within a 24 hour period.");
         }
 
         return score;
