@@ -11,6 +11,12 @@ I approached this problem by breaking it down into 3 main features which were:
 
 Once I broke this problem down I started to pseudocode the solution as I didn’t know which language to choose at the start. This helped a lot when in development as reference to look back upon. I chose Java as I have created very similar functions like the Medi Score calculator in this language before.
 
+## How To Use...
+
+To run this code you will need to download any Java IDE and all the source code files:
+(https://github.com/M01-Games/MediScoreCal/tree/main/src/MediScoreCal) 
+Once done so open these files with the IDE and run java 17.0 or any other verison on the java file called main as this is the hub of the java project. Here in the main is where you can set the Patients variables which will be used to calculate the MediScore as a result when running the program.
+
 ## Patient Class
 
 The Patient class represents a patient with certain physiological measurements. Here’s a breakdown of the class and its components:

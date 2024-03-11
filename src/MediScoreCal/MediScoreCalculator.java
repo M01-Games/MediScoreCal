@@ -52,7 +52,7 @@ public class MediScoreCalculator {
             score += 3;
         } else if (patient.getTemperature() >= 39.1) {
             score += 2;
-        } else if (patient.getTemperature() >= 35.1 && patient.getTemperature() <= 36.0 || patient.getTemperature() >= 38.1 && patient.getTemperature() <= 39.0) {
+        } else if (patient.getTemperature() > 35.0 && patient.getTemperature() <= 36.0 || patient.getTemperature() >= 38.1 && patient.getTemperature() <= 39.0) {
             score += 1;
         } else if (patient.getTemperature() >= 36.1 && patient.getTemperature() <= 38.0) {
             score += 0;
